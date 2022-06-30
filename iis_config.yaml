@@ -6,7 +6,7 @@
     - name: Enable Features
       ansible.windows.win_feature:
         name: "{{ win_features }}"
-        state: present
+        state: "{{ state }}"
         include_sub_features: yes
         include_management_tools: yes
       register: win_output
@@ -19,3 +19,10 @@
       ansible.windows.win_file:
         path: '{{ dir_path }}ansible_directory'
         state: directory
+      when: state == "present"
+
+    - name: Ensure directory does not exist
+      ansible.windows.win_file:
+        path: '{{ dir_path }}ansible_directory'
+        state: absent
+      when: state == "absent"
