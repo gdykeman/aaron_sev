@@ -1,6 +1,6 @@
 ---
 - name: configure winserver
-  hosts: win_server1
+  hosts: winserver1
 
   tasks:
     - name: Enable Features
