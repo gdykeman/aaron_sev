@@ -6,8 +6,8 @@
   vars:
     provider:
       ip_address: "{{ ip_address }}"
-      username: "{{ ansible_user }}"
-      password: "{{ ansible_password }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
 
   tasks:
     - name: Create first security rule
