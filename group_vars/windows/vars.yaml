@@ -1,0 +1,8 @@
+---
+win_features:
+  - RemoteAccess
+  - Web-Mgmt-Tools
+  - Web-WHC
+  - Web-Server
+
+dir_path: 'c:\application_pool\'

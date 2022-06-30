@@ -1,0 +1,21 @@
+---
+- name: configure winserver
+  hosts: windows
+
+  tasks:
+    - name: Enable Features
+      ansible.windows.win_feature:
+        name: "{{ win_features }}"
+        state: present
+        include_sub_features: yes
+        include_management_tools: yes
+      register: win_output
+
+    - name: reboot server if required
+      ansible.windows.win_reboot:
+      when: win_output.reboot_required
+
+    - name: Ensure directory exists
+      ansible.windows.win_file:
+        path: '{{ dir_path }}ansible_directory'
+        state: directory
