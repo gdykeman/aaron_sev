@@ -10,6 +10,16 @@
       password: "{{ password }}"
 
   tasks:
+    - name: Ensure deps are avabilable
+      # Ensure we have all the right requirements installed in this environment
+      pip:
+        name:
+          - pan-python
+          - pan-os-python>1.0.0
+          - xmltodict
+          - requests
+          - requests_toolbelt
+
     - name: show list of all interfaces
       paloaltonetworks.panos.panos_op:
         provider: '{{ provider }}'
