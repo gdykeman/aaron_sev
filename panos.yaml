@@ -11,7 +11,7 @@
 
   tasks:
     - name: show list of all interfaces
-      panos_op:
+      paloaltonetworks.panos.panos_op:
         provider: '{{ provider }}'
         cmd: 'show interfaces all'
       register: output
