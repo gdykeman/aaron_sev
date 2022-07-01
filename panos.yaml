@@ -15,7 +15,6 @@
       pip:
         name:
           - pan-python
-          - pan-os-python>1.0.0
           - xmltodict
           - requests
           - requests_toolbelt
