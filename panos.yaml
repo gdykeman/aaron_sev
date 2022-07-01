@@ -1,6 +1,6 @@
 ---
 - name: Add rule
-  hosts: panos
+  hosts: panos1
   connection: local
 
   vars:
