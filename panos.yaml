@@ -19,7 +19,7 @@
           - xmltodict
           - requests
           - requests_toolbelt
-
+          - pandevice
     - name: show list of all interfaces
       paloaltonetworks.panos.panos_op:
         provider: '{{ provider }}'
