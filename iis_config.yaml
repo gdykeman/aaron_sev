@@ -2,6 +2,9 @@
 - name: configure winserver
   hosts: winserver1
 
+  vars:
+    run_script: no
+
   tasks:
     - name: Enable Features
       ansible.windows.win_feature:
@@ -26,3 +29,7 @@
         path: '{{ dir_path }}ansible_directory'
         state: absent
       when: state == "absent"
+
+    - name: Execute a command in the remote shell, stdout goes to the specified file on the remote
+      ansible.windows.win_shell: C:\somescript.ps1 >> C:\somelog.txt
+      when: run_script
